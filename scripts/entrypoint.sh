@@ -21,7 +21,8 @@ fi
 
 echo "Installing NPM"
 curl https://raw.githubusercontent.com/creationix/nvm/v0.39.0/install.sh | bash
-. ~/.bashrc \
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 nvm install v11.11.0
 
 echo "Building UI"

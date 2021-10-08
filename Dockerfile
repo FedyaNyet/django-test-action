@@ -13,10 +13,6 @@ RUN apt-get update \
 && apt-get purge -y --auto-remove \
 && rm -rf /var/lib/apt/lists/*
 
-run curl https://raw.githubusercontent.com/creationix/nvm/v0.39.0/install.sh | bash \
-&& . ~/.bashrc \
-&& nvm install v11.11.0
-
 # Environment variables
 ENV DB_USER='test'
 ENV DB_PASSWORD='test123'

@@ -19,12 +19,19 @@ if [[ ! -z $ENV_FILE_NAME ]]; then
     . ./$SHELL_FILE_NAME
 fi
 
+echo "Installing NPM"
+curl https://raw.githubusercontent.com/creationix/nvm/v0.39.0/install.sh | bash
+. ~/.bashrc \
+nvm install v11.11.0
+
+echo "Building UI"
+npm i
+npm run build
+
 pip install -r $3
 echo "Migrating DB"
 python manage.py migrate
-echo "build ui"
-npm i
-npm run build
+
 echo "Collecting static assets"
 python manage.py collectstatic
 

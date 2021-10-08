@@ -22,6 +22,7 @@ fi
 pip install -r $3
 echo "Migrating DB"
 python manage.py migrate
+echo "Collecting static assets"
 python manage.py collectstatic
 
 echo "Running your tests"
